@@ -19,44 +19,64 @@ export default function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Register</h2>
+    <div className="relative min-h-screen flex items-center justify-center bg-black text-white">
 
+      {/* 🔙 Back Button (Top Left) */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-6 left-6 text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+      >
+        ← Back
+      </button>
+
+      {/* Register Card */}
+      <div className="bg-neutral-900 p-8 rounded-2xl shadow-2xl w-full max-w-md border border-white/10">
+
+        <h2 className="text-3xl font-bold mb-6 text-center">
+          Create Account
+        </h2>
+
+        {/* Name */}
         <input
           type="text"
           placeholder="Full Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-2 mb-4 border rounded-lg"
+          className="w-full px-4 py-3 mb-4 rounded-xl bg-black border border-white/20 focus:outline-none focus:ring-2 focus:ring-red-500"
         />
+
+        {/* Email */}
         <input
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-2 mb-4 border rounded-lg"
+          className="w-full px-4 py-3 mb-4 rounded-xl bg-black border border-white/20 focus:outline-none focus:ring-2 focus:ring-red-500"
         />
+
+        {/* Password */}
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-2 mb-6 border rounded-lg"
+          className="w-full px-4 py-3 mb-6 rounded-xl bg-black border border-white/20 focus:outline-none focus:ring-2 focus:ring-red-500"
         />
 
+        {/* Register Button */}
         <button
           onClick={handleRegister}
-          className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700"
+          className="w-full bg-red-600 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition shadow-lg"
         >
           Register
         </button>
 
-        <p className="mt-4 text-center text-sm text-gray-600">
+        {/* Login link */}
+        <p className="mt-6 text-center text-sm text-gray-400">
           Already have an account?{" "}
           <span
             onClick={() => navigate("/login")}
-            className="text-blue-600 hover:underline cursor-pointer"
+            className="text-red-500 hover:underline cursor-pointer font-medium"
           >
             Login
           </span>

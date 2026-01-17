@@ -11,10 +11,7 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       const res = await login({ email, password });
-
-      // store JWT
       localStorage.setItem("token", res.data.token);
-
       alert("Login successful!");
       navigate("/dashboard");
     } catch (e) {
@@ -23,10 +20,21 @@ export default function Login() {
   };
 
   return (
-<div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
-<div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+    <div className="relative min-h-screen flex items-center justify-center bg-black text-white">
+      
+      {/* 🔙 Back Button (Top Right) */}
+      <button
+        onClick={() => navigate(-1)}
+        className="absolute top-6 left-6 text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10 transition"
+      >
+        ← Back
+      </button>
+
+      {/* Login Card */}
+      <div className="bg-neutral-900 p-8 rounded-2xl shadow-2xl w-full max-w-md border border-white/10">
+        
         {/* Title */}
-        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">
+        <h2 className="text-3xl font-bold mb-6 text-center">
           Welcome Back
         </h2>
 
@@ -36,7 +44,7 @@ export default function Login() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-4 py-3 mb-4 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-3 mb-4 rounded-xl bg-black border border-white/20 focus:outline-none focus:ring-2 focus:ring-red-500"
         />
 
         {/* Password */}
@@ -45,22 +53,22 @@ export default function Login() {
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-4 py-3 mb-6 border rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-3 mb-6 rounded-xl bg-black border border-white/20 focus:outline-none focus:ring-2 focus:ring-red-500"
         />
 
         {/* Login Button */}
         <button
           onClick={handleLogin}
-          className="w-full bg-green-600 text-white py-3 rounded-xl font-semibold hover:bg-green-700 transition"
+          className="w-full bg-red-600 text-white py-3 rounded-xl font-semibold hover:bg-red-700 transition shadow-lg"
         >
           Login
         </button>
 
         {/* Divider */}
         <div className="flex items-center my-6">
-          <div className="flex-grow h-px bg-gray-300"></div>
-          <span className="px-4 text-sm text-gray-500">OR</span>
-          <div className="flex-grow h-px bg-gray-300"></div>
+          <div className="flex-grow h-px bg-white/20"></div>
+          <span className="px-4 text-sm text-gray-400">OR</span>
+          <div className="flex-grow h-px bg-white/20"></div>
         </div>
 
         {/* Google Login */}
@@ -69,11 +77,11 @@ export default function Login() {
         </div>
 
         {/* Register */}
-        <p className="mt-6 text-center text-sm text-gray-600">
+        <p className="mt-6 text-center text-sm text-gray-400">
           Don’t have an account?{" "}
           <span
             onClick={() => navigate("/register")}
-            className="text-blue-600 hover:underline cursor-pointer font-medium"
+            className="text-red-500 hover:underline cursor-pointer font-medium"
           >
             Register
           </span>
