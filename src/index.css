@@ -1,0 +1,11 @@
+@import "tailwindcss";
+.menu-item {
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+  }
+  
+  .menu-item:hover {
+    background-color: #f3f4f6;
+  }
+  
