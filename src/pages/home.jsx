@@ -6,8 +6,8 @@ export default function Home() {
       {/* ---------- Navbar ---------- */}
       <header className="flex items-center justify-between px-8 py-5 border-b border-white/10">
         <div className="flex items-center gap-2 text-xl font-semibold">
-          <span className="text-2xl">☁️</span>
-          <span>DriveBox</span>
+          <span className="text-3xl">☁️</span>
+          <span className="text-4xl"> DriveBox</span>
         </div>
 
         <div className="flex gap-4">
